@@ -2,7 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-airline/vim-airline'
 
-Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
 
 Plug 'flrnprz/candid.vim'
 
@@ -15,6 +15,10 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'roxma/nvim-yarp'
 
 Plug 'FromtonRouge/OmniCppComplete'
+
+Plug 'Raimondi/delimitMate'
+
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
@@ -40,7 +44,7 @@ set cindent
 set number
 
 set background=dark
-colorscheme candid
+colorscheme gruvbox
 set t_ut=
 
 set tabstop=4
@@ -61,7 +65,6 @@ map <C-v> :r ~/.vimbuffer<CR>
 
 " vim-airline
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline#extension#tagbar#enabled=0
 set laststatus=2
 
@@ -96,3 +99,9 @@ let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 set completeopt=menuone,menu,longest,preview
 au BufNewFile,BufRead,BufEnter *.cpp,*.hpp set omnifunc=omni#cpp#complete#Main
+
+" vim-cpp-enhanced-highlight
+let g:cpp_class_scope_highlight=1
+let g:cpp_member_variable_highlight=1
+let g:cpp_class_decl_highlight=1
+let g:cpp_no_function_highlight=1
